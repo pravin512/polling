@@ -5,6 +5,12 @@
         </title>
     </head>
     <body style="margin-top: 30px;margin-left: 30px;">
+        {% if success %}
+            <script>
+                alert("File Uploaded Sucessfully...!");
+            </script>
+        {%endif %}
+
         <form action="{% url "myapp:index" %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <input type="file"
@@ -24,5 +30,7 @@
         <hr>
         <p></p>
         <a href="http://35.160.90.245:80/export_excel_file" title="Download" download>Download</a>
+
+        
     </body>
 </html>

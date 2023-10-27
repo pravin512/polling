@@ -7,7 +7,7 @@ from django.http import HttpResponse
 
 def index(request):
     if "GET" == request.method:
-        return render(request, 'myapp/index.html', {})
+        return render(request, 'myapp/index.html', {"success":True})
     else:
 
         resultDf = randomizer(request)
@@ -16,7 +16,7 @@ def index(request):
         output_excel_file = "shuffled_excel_file.xlsx"
         resultDf.to_excel(output_excel_file, index=False)
         
-        return render(request, 'myapp/index.html', {"excel_data":resultDf})
+        return render(request, 'myapp/index.html', {"success":True})
 
 def randomizer(request):
     excel_file = request.FILES["excel_file"]
