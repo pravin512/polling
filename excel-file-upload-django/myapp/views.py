@@ -66,7 +66,7 @@ def randomizer(request):
 def export_excel_file(request):
     df = pd.read_excel("shuffled_excel_file.xlsx")
     response = HttpResponse(content_type='application/vnd.ms-excel')
-    response['Content-Disposition'] = f'attachment; filename=excel_filename.xlsx'
+    response['Content-Disposition'] = f'attachment; filename=shuffled_excel_file.xlsx'
     df.to_excel(response, index=False)
     
     return response
@@ -74,3 +74,10 @@ def export_excel_file(request):
 
 
 
+def export_excel_file_template(request):
+    df = pd.read_excel("template.xlsx")
+    response = HttpResponse(content_type='application/vnd.ms-excel')
+    response['Content-Disposition'] = f'attachment; filename=template.xlsx'
+    df.to_excel(response, index=False)
+    
+    return response
