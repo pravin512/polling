@@ -7,7 +7,7 @@ from django.http import HttpResponse
 
 def index(request):
     if "GET" == request.method:
-        return render(request, 'myapp/index.html', {"success":True})
+        return render(request, 'myapp/index.html', {"success":False})
     else:
 
         resultDf = randomizer(request)
